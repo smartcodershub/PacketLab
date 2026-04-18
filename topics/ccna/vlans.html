@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>VLANs & Trunking — CCNA | LearnHub</title>
+<link rel="stylesheet" href="../../css/style.css"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap"/>
+</head><body>
+<nav class="nav"><div class="nav__inner"><a href="../../index.html" class="nav__logo">Learn<span>Hub</span></a>
+<ul class="nav__links" id="navLinks"><li><a href="../../index.html">Home</a></li><li><a href="../ccna.html" class="active">CCNA</a></li><li><a href="../linux.html">Linux</a></li><li><a href="../python.html">Python</a></li><li><a href="../../contact.html" class="cta">Contact</a></li></ul>
+<button class="nav__toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button></div></nav>
+<div class="breadcrumb"><div class="breadcrumb__inner"><a href="../../index.html">Home</a><span class="breadcrumb__sep">/</span><a href="../ccna.html">🌐 CCNA</a><span class="breadcrumb__sep">/</span><span>VLANs & Trunking</span></div></div>
+<div class="page-layout">
+<aside class="sidebar"><p class="sidebar__title">CCNA Subtopics</p><ul class="sidebar__list">
+<li><a href="network-fundamentals.html"><span class="sidebar__dot"></span>Network Fundamentals</a></li>
+<li><a href="ip-addressing.html"><span class="sidebar__dot"></span>IP Addressing & Subnetting</a></li>
+<li><a href="routing.html"><span class="sidebar__dot"></span>Routing Protocols</a></li>
+<li><a href="vlans.html" class="active"><span class="sidebar__dot"></span>VLANs & Trunking</a></li>
+<li><a href="acls.html"><span class="sidebar__dot"></span>Access Control Lists</a></li>
+<li><a href="nat.html"><span class="sidebar__dot"></span>NAT & PAT</a></li>
+</ul></aside>
+<article class="content">
+<div class="content__header"><p class="content__topic">🌐 CCNA</p><h1 class="content__title">VLANs & Trunking</h1><p class="content__desc">Virtual LANs, 802.1Q trunk links, and inter-VLAN routing</p></div>
+<div class="prose">
+<h2>What is a VLAN?</h2>
+<p>A VLAN (Virtual LAN) logically segments a switch into multiple broadcast domains without physical separation. Devices in different VLANs cannot communicate directly — they need a router or Layer 3 switch.</p>
+<h3>Benefits</h3>
+<ul><li>Reduces broadcast traffic</li><li>Improves security by isolating departments</li><li>Simplifies network management</li></ul>
+<h2>VLAN Configuration (Cisco IOS)</h2>
+<pre><code>! Create VLANs
+Switch(config)# vlan 10
+Switch(config-vlan)# name SALES
+Switch(config)# vlan 20
+Switch(config-vlan)# name HR
+
+! Assign port to VLAN (access port)
+Switch(config)# interface fa0/1
+Switch(config-if)# switchport mode access
+Switch(config-if)# switchport access vlan 10
+
+! Verify
+Switch# show vlan brief</code></pre>
+<h2>Trunk Links (802.1Q)</h2>
+<p>Trunk ports carry multiple VLANs between switches using 4-byte VLAN tags inserted into frames.</p>
+<pre><code>Switch(config)# interface gi0/1
+Switch(config-if)# switchport mode trunk
+Switch(config-if)# switchport trunk encapsulation dot1q
+Switch(config-if)# switchport trunk allowed vlan 10,20,30
+
+Switch# show interfaces trunk</code></pre>
+<h2>Inter-VLAN Routing (Router-on-a-Stick)</h2>
+<pre><code>Router(config)# interface gi0/0.10
+Router(config-subif)# encapsulation dot1q 10
+Router(config-subif)# ip address 192.168.10.1 255.255.255.0
+
+Router(config)# interface gi0/0.20
+Router(config-subif)# encapsulation dot1q 20
+Router(config-subif)# ip address 192.168.20.1 255.255.255.0</code></pre>
+</div>
+<div class="page-nav">
+<a href="routing.html" class="page-nav__btn"><span class="page-nav__dir">← Previous</span><span class="page-nav__name">Routing Protocols</span></a>
+<a href="acls.html" class="page-nav__btn page-nav__btn--next"><span class="page-nav__dir">Next →</span><span class="page-nav__name">Access Control Lists</span></a>
+</div></article></div>
+<footer class="footer"><p>© <span id="yr"></span> LearnHub. <a href="../ccna.html">← Back to CCNA</a></p></footer>
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body></html>

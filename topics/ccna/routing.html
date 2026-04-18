@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Routing Protocols — CCNA | LearnHub</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" />
+</head>
+<body>
+<nav class="nav"><div class="nav__inner">
+  <a href="../../index.html" class="nav__logo">Learn<span>Hub</span></a>
+  <ul class="nav__links" id="navLinks">
+    <li><a href="../../index.html">Home</a></li><li><a href="../ccna.html" class="active">CCNA</a></li>
+    <li><a href="../linux.html">Linux</a></li><li><a href="../python.html">Python</a></li>
+    <li><a href="../../contact.html" class="cta">Contact</a></li>
+  </ul>
+  <button class="nav__toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+</div></nav>
+<div class="breadcrumb"><div class="breadcrumb__inner">
+  <a href="../../index.html">Home</a><span class="breadcrumb__sep">/</span>
+  <a href="../ccna.html">🌐 CCNA</a><span class="breadcrumb__sep">/</span><span>Routing Protocols</span>
+</div></div>
+<div class="page-layout">
+  <aside class="sidebar"><p class="sidebar__title">CCNA Subtopics</p><ul class="sidebar__list">
+    <li><a href="network-fundamentals.html"><span class="sidebar__dot"></span>Network Fundamentals</a></li>
+    <li><a href="ip-addressing.html"><span class="sidebar__dot"></span>IP Addressing & Subnetting</a></li>
+    <li><a href="routing.html" class="active"><span class="sidebar__dot"></span>Routing Protocols</a></li>
+    <li><a href="vlans.html"><span class="sidebar__dot"></span>VLANs & Trunking</a></li>
+    <li><a href="acls.html"><span class="sidebar__dot"></span>Access Control Lists</a></li>
+    <li><a href="nat.html"><span class="sidebar__dot"></span>NAT & PAT</a></li>
+  </ul></aside>
+  <article class="content">
+    <div class="content__header">
+      <p class="content__topic">🌐 CCNA</p>
+      <h1 class="content__title">Routing Protocols</h1>
+      <p class="content__desc">How routers learn paths and forward packets — static, RIP, OSPF, EIGRP, BGP</p>
+    </div>
+    <div class="prose">
+      <h2>Types of Routing</h2>
+      <ul>
+        <li><strong>Static routing</strong> — manually configured. Best for small or stub networks. No overhead but no automatic failover.</li>
+        <li><strong>Dynamic routing</strong> — routers share route information automatically. Adapts to network changes.</li>
+      </ul>
+      <h2>Protocol Comparison</h2>
+      <table>
+        <thead><tr><th>Protocol</th><th>Type</th><th>Metric</th><th>Max Hops</th><th>Admin Dist.</th></tr></thead>
+        <tbody>
+          <tr><td>RIP v2</td><td>Distance Vector</td><td>Hop count</td><td>15</td><td>120</td></tr>
+          <tr><td>OSPF</td><td>Link State</td><td>Cost (bandwidth)</td><td>None</td><td>110</td></tr>
+          <tr><td>EIGRP</td><td>Hybrid</td><td>Bandwidth + Delay</td><td>None</td><td>90</td></tr>
+          <tr><td>BGP</td><td>Path Vector</td><td>Policy attributes</td><td>None</td><td>20 (eBGP)</td></tr>
+          <tr><td>Static</td><td>—</td><td>—</td><td>—</td><td>1</td></tr>
+        </tbody>
+      </table>
+      <h3>Administrative Distance Rule</h3>
+      <p>Lower AD = more trusted. If two protocols know a route, the one with lower AD wins.</p>
+      <h2>Static Route Configuration</h2>
+      <pre><code>Router(config)# ip route 192.168.2.0 255.255.255.0 10.0.0.2
+# Destination network   Mask              Next-hop IP
+
+Router(config)# ip route 0.0.0.0 0.0.0.0 10.0.0.1
+# Default route (gateway of last resort)</code></pre>
+      <h2>OSPF Basic Configuration</h2>
+      <pre><code>Router(config)# router ospf 1
+Router(config-router)# network 192.168.1.0 0.0.0.255 area 0
+Router(config-router)# network 10.0.0.0 0.0.0.3 area 0
+
+# Verify
+Router# show ip ospf neighbor
+Router# show ip route ospf</code></pre>
+    </div>
+    <div class="page-nav">
+      <a href="ip-addressing.html" class="page-nav__btn"><span class="page-nav__dir">← Previous</span><span class="page-nav__name">IP Addressing & Subnetting</span></a>
+      <a href="vlans.html" class="page-nav__btn page-nav__btn--next"><span class="page-nav__dir">Next →</span><span class="page-nav__name">VLANs & Trunking</span></a>
+    </div>
+  </article>
+</div>
+<footer class="footer"><p>© <span id="yr"></span> LearnHub. <a href="../ccna.html">← Back to CCNA</a></p></footer>
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body></html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Network Fundamentals — CCNA | LearnHub</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" />
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="../../index.html" class="nav__logo">Learn<span>Hub</span></a>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="../../index.html">Home</a></li>
+      <li><a href="../ccna.html" class="active">CCNA</a></li>
+      <li><a href="../linux.html">Linux</a></li>
+      <li><a href="../python.html">Python</a></li>
+      <li><a href="../../contact.html" class="cta">Contact</a></li>
+    </ul>
+    <button class="nav__toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <div class="breadcrumb__inner">
+    <a href="../../index.html">Home</a>
+    <span class="breadcrumb__sep">/</span>
+    <a href="../ccna.html">🌐 CCNA</a>
+    <span class="breadcrumb__sep">/</span>
+    <span>Network Fundamentals</span>
+  </div>
+</div>
+
+<div class="page-layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <p class="sidebar__title">CCNA Subtopics</p>
+    <ul class="sidebar__list">
+      <li><a href="network-fundamentals.html" class="active"><span class="sidebar__dot"></span>Network Fundamentals</a></li>
+      <li><a href="ip-addressing.html"><span class="sidebar__dot"></span>IP Addressing & Subnetting</a></li>
+      <li><a href="routing.html"><span class="sidebar__dot"></span>Routing Protocols</a></li>
+      <li><a href="vlans.html"><span class="sidebar__dot"></span>VLANs & Trunking</a></li>
+      <li><a href="acls.html"><span class="sidebar__dot"></span>Access Control Lists</a></li>
+      <li><a href="nat.html"><span class="sidebar__dot"></span>NAT & PAT</a></li>
+    </ul>
+  </aside>
+
+  <!-- Content -->
+  <article class="content">
+    <div class="content__header">
+      <p class="content__topic">🌐 CCNA</p>
+      <h1 class="content__title">Network Fundamentals</h1>
+      <p class="content__desc">OSI model, TCP/IP stack, network topologies and basic networking concepts</p>
+    </div>
+
+    <div class="prose">
+
+      <h2>The OSI Model</h2>
+      <p>The OSI (Open Systems Interconnection) model is a conceptual framework that describes how data travels across a network in 7 layers.</p>
+
+      <table>
+        <thead><tr><th>#</th><th>Layer</th><th>Data Unit</th><th>Examples</th></tr></thead>
+        <tbody>
+          <tr><td>7</td><td><strong>Application</strong></td><td>Data</td><td>HTTP, FTP, DNS, SMTP</td></tr>
+          <tr><td>6</td><td><strong>Presentation</strong></td><td>Data</td><td>SSL/TLS, JPEG, ASCII</td></tr>
+          <tr><td>5</td><td><strong>Session</strong></td><td>Data</td><td>NetBIOS, RPC</td></tr>
+          <tr><td>4</td><td><strong>Transport</strong></td><td>Segment</td><td>TCP, UDP</td></tr>
+          <tr><td>3</td><td><strong>Network</strong></td><td>Packet</td><td>IP, ICMP, OSPF</td></tr>
+          <tr><td>2</td><td><strong>Data Link</strong></td><td>Frame</td><td>Ethernet, 802.11</td></tr>
+          <tr><td>1</td><td><strong>Physical</strong></td><td>Bit</td><td>Cables, hubs, NIC</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Memory Trick (top to bottom)</h3>
+      <p><strong>A</strong>ll <strong>P</strong>eople <strong>S</strong>eem <strong>T</strong>o <strong>N</strong>eed <strong>D</strong>ata <strong>P</strong>rocessing</p>
+
+      <h2>TCP vs UDP</h2>
+      <table>
+        <thead><tr><th>Feature</th><th>TCP</th><th>UDP</th></tr></thead>
+        <tbody>
+          <tr><td>Connection</td><td>Connection-oriented</td><td>Connectionless</td></tr>
+          <tr><td>Reliable</td><td>✅ Yes — ACKs, retransmit</td><td>❌ No guarantee</td></tr>
+          <tr><td>Speed</td><td>Slower</td><td>Faster</td></tr>
+          <tr><td>Order</td><td>In order</td><td>Not guaranteed</td></tr>
+          <tr><td>Use case</td><td>HTTP, Email, FTP</td><td>DNS, VoIP, Video</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Network Topologies</h2>
+      <ul>
+        <li><strong>Bus</strong> — all devices on one cable. Simple but one break kills the network.</li>
+        <li><strong>Star</strong> — all devices connect to a central switch. Most common today.</li>
+        <li><strong>Ring</strong> — data travels in a circle. Failure of one node can affect all.</li>
+        <li><strong>Mesh</strong> — every device connects to every other. Highly redundant but expensive.</li>
+        <li><strong>Hybrid</strong> — combination of topologies. Used in large enterprise networks.</li>
+      </ul>
+
+      <h2>Key Commands</h2>
+      <pre><code>ping 8.8.8.8           # Test connectivity to Google DNS
+traceroute 8.8.8.8     # Show hop-by-hop path
+ipconfig /all          # Windows: show IP config
+ifconfig               # Linux: show IP config
+ip addr show           # Linux (modern): show IP config</code></pre>
+
+      <h2>Key Takeaways</h2>
+      <p>Remember the OSI layers top to bottom. TCP is reliable but slow — UDP is fast but no guarantees. Star topology is most common in modern networks.</p>
+
+    </div>
+
+    <!-- Prev / Next -->
+    <div class="page-nav">
+      <div></div>
+      <a href="ip-addressing.html" class="page-nav__btn page-nav__btn--next">
+        <span class="page-nav__dir">Next →</span>
+        <span class="page-nav__name">IP Addressing & Subnetting</span>
+      </a>
+    </div>
+  </article>
+
+</div>
+
+<footer class="footer">
+  <p>© <span id="yr"></span> LearnHub. <a href="../ccna.html">← Back to CCNA</a></p>
+</footer>
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>

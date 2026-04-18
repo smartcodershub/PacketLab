@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CCNA — LearnHub</title>
+  <meta name="description" content="CCNA notes: OSI model, IP addressing, routing, VLANs, ACLs and NAT." />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="../index.html" class="nav__logo">Learn<span>Hub</span></a>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="ccna.html" class="active">CCNA</a></li>
+      <li><a href="linux.html">Linux</a></li>
+      <li><a href="python.html">Python</a></li>
+      <li><a href="../contact.html" class="cta">Contact</a></li>
+    </ul>
+    <button class="nav__toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <div class="breadcrumb__inner">
+    <a href="../index.html">Home</a>
+    <span class="breadcrumb__sep">/</span>
+    <span>CCNA</span>
+  </div>
+</div>
+
+<!-- Topic banner -->
+<div style="background: linear-gradient(135deg, #0d1b2e 0%, #0070d2 100%); padding: 3.5rem 1.5rem; color: #fff;">
+  <div style="max-width: 1160px; margin: 0 auto;">
+    <div style="font-size: 3rem; margin-bottom: 0.75rem;">🌐</div>
+    <h1 style="font-family: 'Syne', sans-serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 0.75rem;">CCNA</h1>
+    <p style="color: rgba(255,255,255,0.75); font-size: 1rem; max-width: 520px;">Cisco Certified Network Associate — foundational networking concepts, protocols and configuration.</p>
+    <div style="margin-top: 1.25rem; background: rgba(255,255,255,0.12); display: inline-block; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem;">6 subtopics</div>
+  </div>
+</div>
+
+<section class="section" style="padding-top: 3rem;">
+  <div class="section__inner">
+    <p style="color: var(--muted); margin-bottom: 0.5rem; font-size: 0.875rem;">Click a subtopic to open the full notes page</p>
+
+    <ul class="sub-list">
+
+      <li class="sub-list__item">
+        <a href="ccna/network-fundamentals.html">
+          <span class="sub-list__num">01</span>
+          <div>
+            <div class="sub-list__name">Network Fundamentals</div>
+            <div class="sub-list__desc">OSI model, TCP/IP, topologies, basic networking concepts</div>
+          </div>
+          <span class="sub-list__arrow">→</span>
+        </a>
+      </li>
+
+      <li class="sub-list__item">
+        <a href="ccna/ip-addressing.html">
+          <span class="sub-list__num">02</span>
+          <div>
+            <div class="sub-list__name">IP Addressing & Subnetting</div>
+            <div class="sub-list__desc">IPv4, IPv6, subnet masks, CIDR notation</div>
+          </div>
+          <span class="sub-list__arrow">→</span>
+        </a>
+      </li>
+
+      <li class="sub-list__item">
+        <a href="ccna/routing.html">
+          <span class="sub-list__num">03</span>
+          <div>
+            <div class="sub-list__name">Routing Protocols</div>
+            <div class="sub-list__desc">Static routing, RIP, OSPF, EIGRP, BGP</div>
+          </div>
+          <span class="sub-list__arrow">→</span>
+        </a>
+      </li>
+
+      <li class="sub-list__item">
+        <a href="ccna/vlans.html">
+          <span class="sub-list__num">04</span>
+          <div>
+            <div class="sub-list__name">VLANs & Trunking</div>
+            <div class="sub-list__desc">Virtual LANs, 802.1Q, inter-VLAN routing</div>
+          </div>
+          <span class="sub-list__arrow">→</span>
+        </a>
+      </li>
+
+      <li class="sub-list__item">
+        <a href="ccna/acls.html">
+          <span class="sub-list__num">05</span>
+          <div>
+            <div class="sub-list__name">Access Control Lists</div>
+            <div class="sub-list__desc">Standard & extended ACLs, wildcard masks, placement</div>
+          </div>
+          <span class="sub-list__arrow">→</span>
+        </a>
+      </li>
+
+      <li class="sub-list__item">
+        <a href="ccna/nat.html">
+          <span class="sub-list__num">06</span>
+          <div>
+            <div class="sub-list__name">NAT & PAT</div>
+            <div class="sub-list__desc">Network Address Translation, PAT overload, configuration</div>
+          </div>
+          <span class="sub-list__arrow">→</span>
+        </a>
+      </li>
+
+    </ul>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>© <span id="yr"></span> LearnHub. <a href="../index.html">← Back to home</a></p>
+</footer>
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>

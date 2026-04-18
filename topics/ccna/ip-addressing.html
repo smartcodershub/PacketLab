@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IP Addressing & Subnetting — CCNA | LearnHub</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" />
+</head>
+<body>
+<nav class="nav"><div class="nav__inner">
+  <a href="../../index.html" class="nav__logo">Learn<span>Hub</span></a>
+  <ul class="nav__links" id="navLinks">
+    <li><a href="../../index.html">Home</a></li>
+    <li><a href="../ccna.html" class="active">CCNA</a></li>
+    <li><a href="../linux.html">Linux</a></li>
+    <li><a href="../python.html">Python</a></li>
+    <li><a href="../../contact.html" class="cta">Contact</a></li>
+  </ul>
+  <button class="nav__toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+</div></nav>
+
+<div class="breadcrumb"><div class="breadcrumb__inner">
+  <a href="../../index.html">Home</a><span class="breadcrumb__sep">/</span>
+  <a href="../ccna.html">🌐 CCNA</a><span class="breadcrumb__sep">/</span>
+  <span>IP Addressing & Subnetting</span>
+</div></div>
+
+<div class="page-layout">
+  <aside class="sidebar">
+    <p class="sidebar__title">CCNA Subtopics</p>
+    <ul class="sidebar__list">
+      <li><a href="network-fundamentals.html"><span class="sidebar__dot"></span>Network Fundamentals</a></li>
+      <li><a href="ip-addressing.html" class="active"><span class="sidebar__dot"></span>IP Addressing & Subnetting</a></li>
+      <li><a href="routing.html"><span class="sidebar__dot"></span>Routing Protocols</a></li>
+      <li><a href="vlans.html"><span class="sidebar__dot"></span>VLANs & Trunking</a></li>
+      <li><a href="acls.html"><span class="sidebar__dot"></span>Access Control Lists</a></li>
+      <li><a href="nat.html"><span class="sidebar__dot"></span>NAT & PAT</a></li>
+    </ul>
+  </aside>
+
+  <article class="content">
+    <div class="content__header">
+      <p class="content__topic">🌐 CCNA</p>
+      <h1 class="content__title">IP Addressing & Subnetting</h1>
+      <p class="content__desc">IPv4 classes, subnet masks, CIDR notation, and subnetting calculations</p>
+    </div>
+
+    <div class="prose">
+      <h2>IPv4 Address Classes</h2>
+      <table>
+        <thead><tr><th>Class</th><th>First Octet</th><th>Default Mask</th><th>Hosts</th></tr></thead>
+        <tbody>
+          <tr><td><strong>A</strong></td><td>1 – 126</td><td>255.0.0.0 /8</td><td>16,777,214</td></tr>
+          <tr><td><strong>B</strong></td><td>128 – 191</td><td>255.255.0.0 /16</td><td>65,534</td></tr>
+          <tr><td><strong>C</strong></td><td>192 – 223</td><td>255.255.255.0 /24</td><td>254</td></tr>
+          <tr><td><strong>D</strong></td><td>224 – 239</td><td>Multicast</td><td>—</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Private IP Ranges (RFC 1918)</h2>
+      <ul>
+        <li><code>10.0.0.0 – 10.255.255.255</code> → Class A private</li>
+        <li><code>172.16.0.0 – 172.31.255.255</code> → Class B private</li>
+        <li><code>192.168.0.0 – 192.168.255.255</code> → Class C private</li>
+      </ul>
+
+      <h2>Subnetting Quick Reference</h2>
+      <table>
+        <thead><tr><th>CIDR</th><th>Subnet Mask</th><th>Hosts</th><th>Subnets from /24</th></tr></thead>
+        <tbody>
+          <tr><td>/24</td><td>255.255.255.0</td><td>254</td><td>1</td></tr>
+          <tr><td>/25</td><td>255.255.255.128</td><td>126</td><td>2</td></tr>
+          <tr><td>/26</td><td>255.255.255.192</td><td>62</td><td>4</td></tr>
+          <tr><td>/27</td><td>255.255.255.224</td><td>30</td><td>8</td></tr>
+          <tr><td>/28</td><td>255.255.255.240</td><td>14</td><td>16</td></tr>
+          <tr><td>/30</td><td>255.255.255.252</td><td>2</td><td>64</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Subnetting Example</h2>
+      <p>Given: <strong>192.168.1.0/26</strong></p>
+      <ul>
+        <li>Subnet mask: 255.255.255.192</li>
+        <li>Network: 192.168.1.0</li>
+        <li>Broadcast: 192.168.1.63</li>
+        <li>Usable hosts: 192.168.1.1 – 192.168.1.62 (62 hosts)</li>
+      </ul>
+
+      <h2>IPv6 Basics</h2>
+      <pre><code>2001:0db8:85a3:0000:0000:8a2e:0370:7334   # Full IPv6
+2001:db8:85a3::8a2e:370:7334              # Compressed (drop leading zeros + :: for consecutive zeros)
+
+fe80::/10    # Link-local
+fc00::/7     # Unique local (like private IPv4)
+2000::/3     # Global unicast</code></pre>
+    </div>
+
+    <div class="page-nav">
+      <a href="network-fundamentals.html" class="page-nav__btn">
+        <span class="page-nav__dir">← Previous</span>
+        <span class="page-nav__name">Network Fundamentals</span>
+      </a>
+      <a href="routing.html" class="page-nav__btn page-nav__btn--next">
+        <span class="page-nav__dir">Next →</span>
+        <span class="page-nav__name">Routing Protocols</span>
+      </a>
+    </div>
+  </article>
+</div>
+
+<footer class="footer"><p>© <span id="yr"></span> LearnHub. <a href="../ccna.html">← Back to CCNA</a></p></footer>
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body></html>

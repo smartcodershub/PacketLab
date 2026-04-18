@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Linux Basics — LearnHub</title>
+  <link rel="stylesheet" href="../css/style.css"/>
+</head>
+<body>
+<nav class="nav"><div class="nav__inner">
+  <a href="../index.html" class="nav__logo">Learn<span>Hub</span></a>
+  <ul class="nav__links" id="navLinks">
+    <li><a href="../index.html">Home</a></li><li><a href="ccna.html">CCNA</a></li>
+    <li><a href="linux.html" class="active">Linux</a></li><li><a href="python.html">Python</a></li>
+    <li><a href="../contact.html" class="cta">Contact</a></li>
+  </ul>
+  <button class="nav__toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+</div></nav>
+<div class="breadcrumb"><div class="breadcrumb__inner"><a href="../index.html">Home</a><span class="breadcrumb__sep">/</span><span>Linux Basics</span></div></div>
+
+<div style="background:linear-gradient(135deg,#1a0a00 0%,#bf360c 100%);padding:3.5rem 1.5rem;color:#fff;">
+  <div style="max-width:1160px;margin:0 auto;">
+    <div style="font-size:3rem;margin-bottom:.75rem;">🐧</div>
+    <h1 style="font-family:'Syne',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;letter-spacing:-.5px;margin-bottom:.75rem;">Linux Basics</h1>
+    <p style="color:rgba(255,255,255,.75);font-size:1rem;max-width:520px;">Essential Linux skills for beginners — commands, file system, permissions, and shell scripting.</p>
+    <div style="margin-top:1.25rem;background:rgba(255,255,255,.12);display:inline-block;padding:4px 14px;border-radius:20px;font-size:.8rem;">5 subtopics</div>
+  </div>
+</div>
+
+<section class="section" style="padding-top:3rem;">
+  <div class="section__inner">
+    <p style="color:var(--muted);margin-bottom:.5rem;font-size:.875rem;">Click a subtopic to open the full notes page</p>
+    <ul class="sub-list">
+      <li class="sub-list__item"><a href="linux/file-system.html"><span class="sub-list__num">01</span><div><div class="sub-list__name">File System & Navigation</div><div class="sub-list__desc">Directory structure, ls, cd, pwd, find</div></div><span class="sub-list__arrow">→</span></a></li>
+      <li class="sub-list__item"><a href="linux/permissions.html"><span class="sub-list__num">02</span><div><div class="sub-list__name">File Permissions</div><div class="sub-list__desc">chmod, chown, rwx, octal notation</div></div><span class="sub-list__arrow">→</span></a></li>
+      <li class="sub-list__item"><a href="linux/processes.html"><span class="sub-list__num">03</span><div><div class="sub-list__name">Processes & Services</div><div class="sub-list__desc">ps, top, kill, systemctl, journalctl</div></div><span class="sub-list__arrow">→</span></a></li>
+      <li class="sub-list__item"><a href="linux/networking.html"><span class="sub-list__num">04</span><div><div class="sub-list__name">Networking Commands</div><div class="sub-list__desc">ip, ss, netstat, ping, curl, nmap</div></div><span class="sub-list__arrow">→</span></a></li>
+      <li class="sub-list__item"><a href="linux/shell-scripting.html"><span class="sub-list__num">05</span><div><div class="sub-list__name">Shell Scripting</div><div class="sub-list__desc">Bash scripts, variables, loops, conditions</div></div><span class="sub-list__arrow">→</span></a></li>
+    </ul>
+  </div>
+</section>
+<footer class="footer"><p>© <span id="yr"></span> LearnHub. <a href="../index.html">← Back to home</a></p></footer>
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body></html>

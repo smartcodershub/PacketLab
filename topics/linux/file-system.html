@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>File System & Navigation — Linux | LearnHub</title>
+<link rel="stylesheet" href="../../css/style.css"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap"/>
+</head><body>
+<nav class="nav"><div class="nav__inner"><a href="../../index.html" class="nav__logo">Learn<span>Hub</span></a>
+<ul class="nav__links" id="navLinks"><li><a href="../../index.html">Home</a></li><li><a href="../ccna.html">CCNA</a></li><li><a href="../linux.html" class="active">Linux</a></li><li><a href="../python.html">Python</a></li><li><a href="../../contact.html" class="cta">Contact</a></li></ul>
+<button class="nav__toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button></div></nav>
+<div class="breadcrumb"><div class="breadcrumb__inner"><a href="../../index.html">Home</a><span class="breadcrumb__sep">/</span><a href="../linux.html">🐧 Linux</a><span class="breadcrumb__sep">/</span><span>File System</span></div></div>
+<div class="page-layout">
+<aside class="sidebar"><p class="sidebar__title">Linux Subtopics</p><ul class="sidebar__list">
+<li><a href="file-system.html" class="active"><span class="sidebar__dot"></span>File System & Navigation</a></li>
+<li><a href="permissions.html"><span class="sidebar__dot"></span>File Permissions</a></li>
+<li><a href="processes.html"><span class="sidebar__dot"></span>Processes & Services</a></li>
+<li><a href="networking.html"><span class="sidebar__dot"></span>Networking Commands</a></li>
+<li><a href="shell-scripting.html"><span class="sidebar__dot"></span>Shell Scripting</a></li>
+</ul></aside>
+<article class="content">
+<div class="content__header"><p class="content__topic">🐧 Linux Basics</p><h1 class="content__title">File System & Navigation</h1><p class="content__desc">Linux directory structure and essential navigation commands</p></div>
+<div class="prose">
+<h2>Linux Directory Structure</h2>
+<table><thead><tr><th>Path</th><th>Purpose</th></tr></thead>
+<tbody>
+<tr><td><code>/</code></td><td>Root — top of the filesystem tree</td></tr>
+<tr><td><code>/home</code></td><td>User home directories</td></tr>
+<tr><td><code>/etc</code></td><td>System configuration files</td></tr>
+<tr><td><code>/var</code></td><td>Variable data — logs, databases</td></tr>
+<tr><td><code>/usr</code></td><td>User programs and libraries</td></tr>
+<tr><td><code>/bin</code></td><td>Essential binaries (ls, cp, mv)</td></tr>
+<tr><td><code>/tmp</code></td><td>Temporary files — cleared on reboot</td></tr>
+<tr><td><code>/dev</code></td><td>Device files</td></tr>
+</tbody></table>
+<h2>Essential Commands</h2>
+<pre><code>pwd                    # Print current directory
+ls                     # List files
+ls -la                 # List all files with details + hidden
+cd /home/user          # Change to absolute path
+cd ..                  # Go up one level
+cd ~                   # Go to home directory
+mkdir mydir            # Create directory
+mkdir -p a/b/c         # Create nested directories
+rmdir mydir            # Remove empty directory
+rm -rf mydir           # Remove directory and contents (CAREFUL)
+cp file.txt /tmp/      # Copy file
+mv file.txt newname    # Rename / move file
+cat file.txt           # Display file contents
+less file.txt          # Page through file (q to quit)
+head -20 file.txt      # First 20 lines
+tail -f /var/log/syslog  # Follow log in real time</code></pre>
+<h2>Finding Files</h2>
+<pre><code>find / -name "*.conf"           # Find all .conf files from root
+find /home -type f -size +1M   # Files larger than 1MB
+find . -mtime -7                # Files modified in last 7 days
+which python3                   # Find location of a command
+locate nginx.conf               # Fast file search (uses index)</code></pre>
+</div>
+<div class="page-nav"><div></div>
+<a href="permissions.html" class="page-nav__btn page-nav__btn--next"><span class="page-nav__dir">Next →</span><span class="page-nav__name">File Permissions</span></a>
+</div></article></div>
+<footer class="footer"><p>© <span id="yr"></span> LearnHub. <a href="../linux.html">← Back to Linux</a></p></footer>
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body></html>

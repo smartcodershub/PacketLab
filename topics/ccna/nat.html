@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>NAT & PAT — CCNA | LearnHub</title>
+<link rel="stylesheet" href="../../css/style.css"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap"/>
+</head><body>
+<nav class="nav"><div class="nav__inner"><a href="../../index.html" class="nav__logo">Learn<span>Hub</span></a>
+<ul class="nav__links" id="navLinks"><li><a href="../../index.html">Home</a></li><li><a href="../ccna.html" class="active">CCNA</a></li><li><a href="../linux.html">Linux</a></li><li><a href="../python.html">Python</a></li><li><a href="../../contact.html" class="cta">Contact</a></li></ul>
+<button class="nav__toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button></div></nav>
+<div class="breadcrumb"><div class="breadcrumb__inner"><a href="../../index.html">Home</a><span class="breadcrumb__sep">/</span><a href="../ccna.html">🌐 CCNA</a><span class="breadcrumb__sep">/</span><span>NAT & PAT</span></div></div>
+<div class="page-layout">
+<aside class="sidebar"><p class="sidebar__title">CCNA Subtopics</p><ul class="sidebar__list">
+<li><a href="network-fundamentals.html"><span class="sidebar__dot"></span>Network Fundamentals</a></li>
+<li><a href="ip-addressing.html"><span class="sidebar__dot"></span>IP Addressing & Subnetting</a></li>
+<li><a href="routing.html"><span class="sidebar__dot"></span>Routing Protocols</a></li>
+<li><a href="vlans.html"><span class="sidebar__dot"></span>VLANs & Trunking</a></li>
+<li><a href="acls.html"><span class="sidebar__dot"></span>Access Control Lists</a></li>
+<li><a href="nat.html" class="active"><span class="sidebar__dot"></span>NAT & PAT</a></li>
+</ul></aside>
+<article class="content">
+<div class="content__header"><p class="content__topic">🌐 CCNA</p><h1 class="content__title">NAT & PAT</h1><p class="content__desc">Translate private IPs to public for internet access — static NAT, dynamic NAT, PAT overload</p></div>
+<div class="prose">
+<h2>What is NAT?</h2>
+<p>NAT (Network Address Translation) converts private IP addresses to a public IP before sending traffic to the internet.</p>
+<table><thead><tr><th>Type</th><th>Description</th><th>Ratio</th></tr></thead>
+<tbody><tr><td>Static NAT</td><td>One private → one public IP</td><td>1:1</td></tr>
+<tr><td>Dynamic NAT</td><td>Pool of public IPs, assigned as needed</td><td>Many:many</td></tr>
+<tr><td>PAT (Overload)</td><td>Many private → one public IP, differentiated by port</td><td>Many:1</td></tr></tbody></table>
+<h2>PAT Configuration (Most Common)</h2>
+<pre><code>! Define which IPs to translate
+Router(config)# access-list 1 permit 192.168.1.0 0.0.0.255
+
+! Enable PAT on outside interface
+Router(config)# ip nat inside source list 1 interface gi0/0 overload
+
+! Mark interfaces
+Router(config)# interface gi0/1
+Router(config-if)# ip nat inside
+
+Router(config)# interface gi0/0
+Router(config-if)# ip nat outside
+
+! Verify translations
+Router# show ip nat translations
+Router# show ip nat statistics</code></pre>
+<h2>Static NAT (Server accessible from internet)</h2>
+<pre><code>! Map private server 192.168.1.10 → public 203.0.113.10
+Router(config)# ip nat inside source static 192.168.1.10 203.0.113.10</code></pre>
+</div>
+<div class="page-nav">
+<a href="acls.html" class="page-nav__btn"><span class="page-nav__dir">← Previous</span><span class="page-nav__name">Access Control Lists</span></a>
+<div></div>
+</div></article></div>
+<footer class="footer"><p>© <span id="yr"></span> LearnHub. <a href="../ccna.html">← Back to CCNA</a></p></footer>
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body></html>

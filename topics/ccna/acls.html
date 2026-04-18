@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Access Control Lists — CCNA | LearnHub</title>
+<link rel="stylesheet" href="../../css/style.css"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap"/>
+</head><body>
+<nav class="nav"><div class="nav__inner"><a href="../../index.html" class="nav__logo">Learn<span>Hub</span></a>
+<ul class="nav__links" id="navLinks"><li><a href="../../index.html">Home</a></li><li><a href="../ccna.html" class="active">CCNA</a></li><li><a href="../linux.html">Linux</a></li><li><a href="../python.html">Python</a></li><li><a href="../../contact.html" class="cta">Contact</a></li></ul>
+<button class="nav__toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button></div></nav>
+<div class="breadcrumb"><div class="breadcrumb__inner"><a href="../../index.html">Home</a><span class="breadcrumb__sep">/</span><a href="../ccna.html">🌐 CCNA</a><span class="breadcrumb__sep">/</span><span>Access Control Lists</span></div></div>
+<div class="page-layout">
+<aside class="sidebar"><p class="sidebar__title">CCNA Subtopics</p><ul class="sidebar__list">
+<li><a href="network-fundamentals.html"><span class="sidebar__dot"></span>Network Fundamentals</a></li>
+<li><a href="ip-addressing.html"><span class="sidebar__dot"></span>IP Addressing & Subnetting</a></li>
+<li><a href="routing.html"><span class="sidebar__dot"></span>Routing Protocols</a></li>
+<li><a href="vlans.html"><span class="sidebar__dot"></span>VLANs & Trunking</a></li>
+<li><a href="acls.html" class="active"><span class="sidebar__dot"></span>Access Control Lists</a></li>
+<li><a href="nat.html"><span class="sidebar__dot"></span>NAT & PAT</a></li>
+</ul></aside>
+<article class="content">
+<div class="content__header"><p class="content__topic">🌐 CCNA</p><h1 class="content__title">Access Control Lists</h1><p class="content__desc">Filter traffic with standard and extended ACLs — permit/deny rules and placement</p></div>
+<div class="prose">
+<h2>What are ACLs?</h2>
+<p>ACLs are ordered lists of permit/deny rules applied to router interfaces. They filter traffic based on source IP, destination IP, protocol and port numbers.</p>
+<h3>ACL Processing Rules</h3>
+<ul><li>Rules are checked <strong>top to bottom</strong> — first match wins</li><li>There is an implicit <strong>deny all</strong> at the end of every ACL</li><li>Standard ACL → place close to the <strong>destination</strong></li><li>Extended ACL → place close to the <strong>source</strong></li></ul>
+<h2>Standard ACL (1–99)</h2>
+<p>Filters only on <strong>source IP address</strong>.</p>
+<pre><code>Router(config)# access-list 10 permit 192.168.1.0 0.0.0.255
+Router(config)# access-list 10 deny any
+
+Router(config)# interface gi0/1
+Router(config-if)# ip access-group 10 out</code></pre>
+<h2>Extended ACL (100–199)</h2>
+<p>Filters on source IP, destination IP, protocol, and port.</p>
+<pre><code>! Allow HTTP from 192.168.1.0/24 to any
+Router(config)# access-list 100 permit tcp 192.168.1.0 0.0.0.255 any eq 80
+
+! Allow DNS
+Router(config)# access-list 100 permit udp any any eq 53
+
+! Deny everything else (implicit, but good practice to see)
+Router(config)# access-list 100 deny ip any any
+
+Router(config)# interface gi0/0
+Router(config-if)# ip access-group 100 in
+
+! Verify
+Router# show access-lists
+Router# show ip interface gi0/0</code></pre>
+<h2>Wildcard Masks</h2>
+<table><thead><tr><th>Network</th><th>Subnet Mask</th><th>Wildcard Mask</th></tr></thead>
+<tbody><tr><td>192.168.1.0/24</td><td>255.255.255.0</td><td>0.0.0.255</td></tr>
+<tr><td>192.168.1.0/26</td><td>255.255.255.192</td><td>0.0.0.63</td></tr>
+<tr><td>Any host</td><td>—</td><td>255.255.255.255 (or <code>any</code>)</td></tr>
+<tr><td>Exact host</td><td>—</td><td>0.0.0.0 (or <code>host</code>)</td></tr></tbody></table>
+</div>
+<div class="page-nav">
+<a href="vlans.html" class="page-nav__btn"><span class="page-nav__dir">← Previous</span><span class="page-nav__name">VLANs & Trunking</span></a>
+<a href="nat.html" class="page-nav__btn page-nav__btn--next"><span class="page-nav__dir">Next →</span><span class="page-nav__name">NAT & PAT</span></a>
+</div></article></div>
+<footer class="footer"><p>© <span id="yr"></span> LearnHub. <a href="../ccna.html">← Back to CCNA</a></p></footer>
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body></html>

@@ -1,0 +1,11 @@
+# netlify.toml — Netlify deployment config for static HTML site
+# No build step needed — Netlify serves the HTML files directly
+
+[build]
+  publish = "."       # Serve from root folder
+
+# Pretty URLs — /topics/ccna works without .html
+[[redirects]]
+  from = "/*"
+  to   = "/:splat"
+  status = 200

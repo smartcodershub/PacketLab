@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LearnHub — Topics & Notes</title>
+  <meta name="description" content="Free learning notes on CCNA, Linux, Python and more. Structured topics with subtopics and full notes." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" />
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">Learn<span>Hub</span></a>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="topics/ccna.html">CCNA</a></li>
+      <li><a href="topics/linux.html">Linux</a></li>
+      <li><a href="topics/python.html">Python</a></li>
+      <li><a href="contact.html" class="cta">Contact</a></li>
+    </ul>
+    <button class="nav__toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__grid"></div>
+  <div class="hero__glow"></div>
+  <div class="hero__inner">
+    <div class="hero__badge anim">📚 Free Learning Notes</div>
+    <h1 class="hero__title anim anim-d1">Learn <em>smarter</em>,<br>one topic at a time.</h1>
+    <p class="hero__sub anim anim-d2">Structured notes on networking, Linux, and programming. Each topic has linked subtopics with full notes, examples, and commands.</p>
+    <div class="hero__actions anim anim-d3">
+      <a href="#topics" class="btn btn--primary">Browse Topics →</a>
+      <a href="contact.html" class="btn btn--ghost">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- TOPICS -->
+<section class="section" id="topics">
+  <div class="section__inner">
+    <p class="section__label">What's inside</p>
+    <h2 class="section__title">Pick a topic to get started</h2>
+    <p class="section__sub">Click any card to see all subtopics. Each subtopic is a full notes page with examples.</p>
+
+    <div class="topics-grid">
+
+      <a href="topics/ccna.html" class="topic-card">
+        <div class="topic-card__stripe" style="background: #0070d2;"></div>
+        <div class="topic-card__body">
+          <div class="topic-card__icon">🌐</div>
+          <div class="topic-card__title">CCNA</div>
+          <div class="topic-card__desc">Cisco Certified Network Associate. OSI model, IP addressing, subnetting, routing protocols, VLANs, ACLs and NAT.</div>
+        </div>
+        <div class="topic-card__footer">
+          <span class="topic-card__count">6 subtopics</span>
+          <span class="topic-card__link">Open topic</span>
+        </div>
+      </a>
+
+      <a href="topics/linux.html" class="topic-card">
+        <div class="topic-card__stripe" style="background: #e64a19;"></div>
+        <div class="topic-card__body">
+          <div class="topic-card__icon">🐧</div>
+          <div class="topic-card__title">Linux Basics</div>
+          <div class="topic-card__desc">Essential Linux skills. File system, permissions, processes, networking commands and shell scripting for beginners.</div>
+        </div>
+        <div class="topic-card__footer">
+          <span class="topic-card__count">5 subtopics</span>
+          <span class="topic-card__link">Open topic</span>
+        </div>
+      </a>
+
+      <a href="topics/python.html" class="topic-card">
+        <div class="topic-card__stripe" style="background: #2e7d32;"></div>
+        <div class="topic-card__body">
+          <div class="topic-card__icon">🐍</div>
+          <div class="topic-card__title">Python</div>
+          <div class="topic-card__desc">Python from scratch. Variables, loops, functions, file handling, and automation scripts with real examples.</div>
+        </div>
+        <div class="topic-card__footer">
+          <span class="topic-card__count">4 subtopics</span>
+          <span class="topic-card__link">Open topic</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>© <span id="yr"></span> LearnHub. Free to use. Hosted on <a href="https://netlify.com" target="_blank">Netlify</a>.</p>
+</footer>
+
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>

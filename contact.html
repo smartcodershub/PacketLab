@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — LearnHub</title>
+  <meta name="description" content="Get in touch — send a message and we'll reply by email." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">Learn<span>Hub</span></a>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="topics/ccna.html">CCNA</a></li>
+      <li><a href="topics/linux.html">Linux</a></li>
+      <li><a href="topics/python.html">Python</a></li>
+      <li><a href="contact.html" class="cta active">Contact</a></li>
+    </ul>
+    <button class="nav__toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+  </div>
+</nav>
+
+<!-- Page header -->
+<div style="background: var(--ink); padding: 3.5rem 1.5rem; text-align: center;">
+  <div style="max-width: 600px; margin: 0 auto;">
+    <p style="color: var(--accent); font-size: 0.75rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.75rem;">Get in touch</p>
+    <h1 style="font-family: 'Syne', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; color: #fff; letter-spacing: -0.5px; margin-bottom: 0.75rem;">Send a Message</h1>
+    <p style="color: rgba(255,255,255,0.6); font-size: 1rem;">Have a question, suggestion, or topic request? Fill in the form and we'll reply to your email.</p>
+  </div>
+</div>
+
+<section class="section contact-section">
+  <div class="section__inner">
+    <div class="contact-grid">
+
+      <!-- Left: contact info -->
+      <div class="contact-info">
+        <div>
+          <p class="section__label">About LearnHub</p>
+          <h2 style="font-family: 'Syne', sans-serif; font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; letter-spacing: -0.3px;">Free notes, built for learners</h2>
+          <p style="color: var(--muted); line-height: 1.8;">LearnHub is a free site with structured notes on CCNA, Linux, Python and more. All content is maintained regularly.</p>
+        </div>
+
+        <div class="contact-info__item">
+          <div class="contact-info__icon">📬</div>
+          <div>
+            <p class="contact-info__label">Email</p>
+            <p class="contact-info__value">hello@learnhub.com</p>
+          </div>
+        </div>
+
+        <div class="contact-info__item">
+          <div class="contact-info__icon">⏱️</div>
+          <div>
+            <p class="contact-info__label">Response time</p>
+            <p class="contact-info__value">Usually within 24–48 hours</p>
+          </div>
+        </div>
+
+        <div class="contact-info__item">
+          <div class="contact-info__icon">💡</div>
+          <div>
+            <p class="contact-info__label">Topic requests</p>
+            <p class="contact-info__value">Suggest a topic and we'll add notes for it</p>
+          </div>
+        </div>
+
+        <div style="background: #f0fdfb; border: 1px solid rgba(0,194,168,0.2); border-radius: var(--r); padding: 1.25rem;">
+          <p style="font-size: 0.8rem; color: var(--muted); margin-bottom: 0.4rem; font-weight: 500;">📩 How email delivery works</p>
+          <p style="font-size: 0.8rem; color: var(--muted); line-height: 1.7;">This form uses <strong>Netlify Forms</strong> — a free service that captures your submission and sends it directly to your inbox. No backend or server required.</p>
+        </div>
+      </div>
+
+      <!-- Right: contact form -->
+      <div>
+        <!-- Success message (shown after submit) -->
+        <div id="form-success" class="alert" style="display:none; margin-bottom: 1.5rem;">
+          ✅ Message sent! We'll reply to your email within 24–48 hours.
+        </div>
+        <div id="form-error" class="alert" style="display:none; margin-bottom: 1.5rem; background:#fee2e2; color:#991b1b; border:1px solid #fca5a5;">
+          ❌ Something went wrong. Please try again or email us directly.
+        </div>
+
+        <!--
+          NETLIFY FORMS SETUP:
+          1. Deploy this site to Netlify
+          2. Netlify auto-detects data-netlify="true" and activates the form
+          3. Go to Netlify Dashboard → Forms → Set up email notifications
+          4. Enter YOUR email address to receive submissions
+          5. Done — every form submission arrives in your inbox for free
+        -->
+        <form
+          class="form"
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          id="contactForm"
+        >
+          <!-- Honeypot spam protection -->
+          <input type="hidden" name="form-name" value="contact" />
+          <input type="text" name="bot-field" style="display:none" />
+
+          <div class="form__row">
+            <div class="form__group">
+              <label class="form__label" for="name">Your Name *</label>
+              <input class="form__input" type="text" id="name" name="name" placeholder="John Smith" required />
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="email">Email Address *</label>
+              <input class="form__input" type="email" id="email" name="email" placeholder="john@example.com" required />
+            </div>
+          </div>
+
+          <div class="form__group">
+            <label class="form__label" for="subject">Subject *</label>
+            <select class="form__select" id="subject" name="subject" required>
+              <option value="" disabled selected>Select a subject…</option>
+              <option value="Topic Request">📚 Topic Request</option>
+              <option value="Content Feedback">✏️ Content Feedback</option>
+              <option value="Bug / Broken Link">🐛 Bug / Broken Link</option>
+              <option value="General Question">💬 General Question</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="form__group">
+            <label class="form__label" for="message">Message *</label>
+            <textarea class="form__textarea" id="message" name="message" placeholder="Your message here…" required></textarea>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+            <button type="submit" class="form__submit">Send Message →</button>
+            <p class="form__note">* Required fields. We never share your email.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>© <span id="yr"></span> LearnHub. <a href="index.html">← Back to home</a></p>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Handle form submission with fetch (AJAX) for better UX
+  const form = document.getElementById('contactForm');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('.form__submit');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    try {
+      const data = new FormData(form);
+      const res = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(data).toString()
+      });
+
+      if (res.ok) {
+        form.style.display = 'none';
+        document.getElementById('form-success').style.display = 'block';
+      } else {
+        throw new Error('Server error');
+      }
+    } catch {
+      document.getElementById('form-error').style.display = 'block';
+      btn.textContent = 'Send Message →';
+      btn.disabled = false;
+    }
+  });
+</script>
+
+</body>
+</html>
